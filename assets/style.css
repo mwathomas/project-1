@@ -1,0 +1,33 @@
+
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+    background-color: lightgoldenrodyellow;
+}
+
+header {
+    padding: 40px;
+    text-align: center;
+    background: lightgreen;
+    color: #ffff;
+}
+
+main {
+    background-color: lightgray;
+    padding: 40px;
+    text-align: auto;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+    background-color: blue;
+    color: #ffff;
+}
