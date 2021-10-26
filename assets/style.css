@@ -1,33 +1,74 @@
-
-body {
-    font-family: Arial;
-    margin: 0;
+:root {
+  --darkest-blue: #7400b8;
+  --darker-blue: #6930c3;
+  --dark-blue: #5e60ce;
+  --mid-blue: #5390d9;
+  --light-blue: #4ea8de;
+  --lighter-blue: #48bfe3;
+  --lightest-blue: #56cfe1;
+  --least-green: #64dfdf;
+  --mid-green: #72efdd;
+  --most-green: #80ffdb;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    border: 1px solid black;
-    background-color: lightgoldenrodyellow;
+.header {
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color: var(--darkest-blue);
+}
+.title {
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color: var(--darkest-blue);
 }
 
-header {
-    padding: 40px;
-    text-align: center;
-    background: lightgreen;
-    color: #ffff;
+.main-container {
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color: var(--darkest-blue);
 }
 
-main {
-    background-color: lightgray;
-    padding: 40px;
-    text-align: auto;
+.button {
+  background-color: var(--lighter-blue);
+  color: var(--darkest-blue);
 }
 
-footer {
-    padding: 10px;
-    text-align: center;
-    margin: auto;
-    background-color: blue;
-    color: #ffff;
+#list-of-entered-ingredients-container {
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color: var(--darkest-blue);
+}
+.recipe-card {
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color: var(--darkest-blue);
+}
+.saved-recipes-container {
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color: var(--darkest-blue);
 }
