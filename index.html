@@ -3,26 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
 
     <title>Foode</title>
-
   </head>
   <body>
-    <header class="header">
-      <h1 class="title">Hello, ______</h1>
+    <header class="header" id="header-contatiner">
+      <input
+        class="input is-primary is-normal"
+        type="text"
+        placeholder="Enter your first name"
+      />
+      <h1 class="title" id="heading">Hello, <span></span> Welcome to FoodE!</h1>
     </header>
-    <section class="ingredients-container">
-      <div class="ingredients">
-        <p class="ingredient-title">ingredients</p>
-        <ul class="ingredient-list">
-          <li class="ingredient">ingredient</li>
-        </ul>
-      </div>
-    </section>
-    <main class="recipe-container">
-      <div class="card">recipe card</div>
+    <main class="main-container" id="main-cont">
+      <section class="ingredients-container" id="ingreds-input-container">
+        <input
+          class="input is-primary is-normal"
+          type="text"
+          placeholder="Enter ingredient"
+        />
+        <button class="button is-primary" id="submit-btn">Submit</button>
+      </section>
+      <section id="list-of-entered-ingredients-container">
+        <h2>List of entered ingredients container</h2>
+      </section>
+      <section id="possible-recipes-container">
+        <div class="recipe card">
+          <h2>Recipe Title</h2>
+          <p>Recipe Ingredients</p>
+          <p>Instructions</p>
+        </div>
+      </section>
+      <section id="saved-recipes-container">
+        <h2>Saved Recipes Container</h2>
+      </section>
     </main>
+
     <footer>
       made by kai gerstley, hugo yanez, fethan, david silveira, madeline thomas.
     </footer>
