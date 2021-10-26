@@ -18,7 +18,7 @@
     var(--darkest-blue) 35%,
     var(--lightest-blue) 100%
   );
-  color: var(--darkest-blue));
+  color: var(--darkest-blue);
 }
 .title {
   background: linear-gradient(
@@ -27,7 +27,7 @@
     var(--darkest-blue) 35%,
     var(--lightest-blue) 100%
   );
-  color:var(--darkest-blue);
+  color: var(--darkest-blue);
 }
 
 .main-container {
@@ -61,7 +61,7 @@
     var(--darkest-blue) 35%,
     var(--lightest-blue) 100%
   );
-  color:var(--darkest-blue);
+  color: var(--darkest-blue);
 }
 .saved-recipes-container {
   background: linear-gradient(
@@ -70,5 +70,5 @@
     var(--darkest-blue) 35%,
     var(--lightest-blue) 100%
   );
-  color:var(--darkest-blue);
+  color: var(--darkest-blue);
 }
