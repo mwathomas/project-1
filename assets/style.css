@@ -10,36 +10,54 @@
   --mid-green: #72efdd;
   --most-green: #80ffdb;
 }
-body {
-  font-family: Arial;
-  margin: 0;
-  background-color: var(--most-green);
+
+.everything {
+  background-color: var(--darkest-blue);
+  color: var(--most-green);
+}
+.header {
+  background-color: var(--darker-blue);
+  color: var(--mid-green);
+}
+.title-words {
+  background-color: var(--dark-blue);
+  color: var(--least-green);
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-  border: 1px solid var(--darkest-blue);
-  background-color: var(--light-blue);
-}
-
-header {
-  padding: 40px;
-  text-align: center;
-  background: var(--lightest-blue);
-  color: #ffff;
-}
-
-main {
-  background-color: var(--least-green);
-  padding: 40px;
-  text-align: auto;
-}
-
-footer {
-  padding: 10px;
-  text-align: center;
-  margin: auto;
+.ingredients-container {
   background-color: var(--mid-blue);
-  color: var(--mid-blue);
+  color: var(--mid-green);
+}
+
+.ingredients {
+  background-color: var(--dark-blue);
+  color: var(--most-green);
+}
+
+.ingredient-title {
+  background-color: var(--darker-blue);
+  color: var(--mid-green);
+}
+.ingredients-list {
+  background-color: var(--darkest-blue);
+  color: var(--least-green);
+}
+.ingredient {
+  background-color: var(--darker-blue);
+  color: var(--mid-green);
+}
+
+.recipe-container {
+  background-color: var(--dark-blue);
+  color: var(--most-green);
+}
+
+.card {
+  background-color: var(--mid-blue);
+  color: var(--mid-green);
+}
+
+.made-by {
+  background-color: var(--light-blue);
+  color: var(--most-green);
 }
