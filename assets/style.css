@@ -11,53 +11,64 @@
   --most-green: #80ffdb;
 }
 
-.everything {
-  background-color: var(--darkest-blue);
-  color: var(--most-green);
-}
 .header {
-  background-color: var(--darker-blue);
-  color: var(--mid-green);
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color: var(--darkest-blue));
 }
-.title-words {
-  background-color: var(--dark-blue);
-  color: var(--least-green);
-}
-
-.ingredients-container {
-  background-color: var(--mid-blue);
-  color: var(--mid-green);
-}
-
-.ingredients {
-  background-color: var(--dark-blue);
-  color: var(--most-green);
-}
-
-.ingredient-title {
-  background-color: var(--darker-blue);
-  color: var(--mid-green);
-}
-.ingredients-list {
-  background-color: var(--darkest-blue);
-  color: var(--least-green);
-}
-.ingredient {
-  background-color: var(--darker-blue);
-  color: var(--mid-green);
+.title {
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color:var(--darkest-blue);
 }
 
-.recipe-container {
-  background-color: var(--dark-blue);
-  color: var(--most-green);
+.main-container {
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color: var(--darkest-blue);
 }
 
-.card {
-  background-color: var(--mid-blue);
-  color: var(--mid-green);
+.button {
+  background-color: var(--lighter-blue);
+  color: var(--darkest-blue);
 }
 
-.made-by {
-  background-color: var(--light-blue);
-  color: var(--most-green);
+#list-of-entered-ingredients-container {
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color: var(--darkest-blue);
+}
+.recipe-card {
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color:var(--darkest-blue);
+}
+.saved-recipes-container {
+  background: linear-gradient(
+    90deg,
+    var(--most-green) 0%,
+    var(--darkest-blue) 35%,
+    var(--lightest-blue) 100%
+  );
+  color:var(--darkest-blue);
 }
