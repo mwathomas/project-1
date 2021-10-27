@@ -36,6 +36,9 @@ function askUserForIngredients() {
   $askUserIngredientsTarget.text(
     "What ingredients will you be cooking with today, " + currentUserName
   );
+  document
+    .getElementById("saved-recipes-container")
+    .setAttribute("style", "display:block");
 }
 
 //have default visibility for "ingreds-input-container" be hidden, but after user enters their name this container will become visible
@@ -70,6 +73,7 @@ function renderIngredientsOnSearchList() {
     ingredientsUrl += ingredientsList[i];
   }
   console.log(ingredientsUrl);
+
   fetch(
     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=" +
       ingredientsList +
@@ -118,11 +122,10 @@ function renderIngredientsOnSearchList() {
       }
       getRecipeBtn.addEventListener("click", function (event) {
         event.preventDefault();
-
-        //this targets the input from the add ingredients part of the process
         document
-          .getElementById("saved-recipes-container")
+          .getElementById("save-recipe-btn")
           .setAttribute("style", "display:block");
+        //this targets the input from the add ingredients part of the process
         document
           .getElementById("recipe-card")
           .setAttribute("style", "display:block");
