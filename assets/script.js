@@ -38,7 +38,7 @@ function displayIngredientAddInputAbility() {
   ingredsContainer.style.visibility = "visible";
 }
 
-//TODO: WRITE FUNCTION TO SHOW THE CURRENT LIST OF SEARCHED INGREDIENTS IN'list-of-entered-ingredients-container'
+//TODO: WRITE FUNCTION TO SHOW THE CURRENT LIST OF SEARCHED INGREDIENTS IN 'list-of-entered-ingredients-container'
 function renderIngredientsOnSearchList() {
   /*
     //loop through each item in the array until the end
@@ -49,7 +49,15 @@ function renderIngredientsOnSearchList() {
                 //add button to 'section' created in earlier step
         
         //Now that we have our 'section' put together so it has our text && button elemenets, we need to add our 'section' to the relevant container on the html page 
+
+        if(ingredientsArr.length !== 0)
+            //addAbilityToSearchRecipes();
     */
+}
+
+//TODO: WRITE A FUNCTION THAT ADDS A 'SEARCH FOR RECIPES' BUTTON ONTO THE LIST OF INGREDIENTS ADDED TO THE LIST TO BE SEARCHED
+function addAbilityToSearchRecipes() {
+  //create a button and add it to end 'list-of-entered-ingredients-container'
 }
 
 //USER INTERACTIONS
