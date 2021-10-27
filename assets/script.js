@@ -114,6 +114,7 @@ function renderIngredientsOnSearchList() {
             recipeInstructionsEl.innerHTML = data2.sourceUrl;
             recipeInstructionsEl.setAttribute("href", data2.sourceUrl);
           });
+        recipeNum++;
       }
       getRecipeBtn.addEventListener("click", function (event) {
         event.preventDefault();
@@ -125,13 +126,6 @@ function renderIngredientsOnSearchList() {
         document
           .getElementById("recipe-card")
           .setAttribute("style", "display:block");
-        searchRecipes();
-      });
-
-      searchAnotherRecipeBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-        //this targets the input from the add ingredients part of the process
-        recipeNum++;
         searchRecipes();
       });
     });
@@ -168,6 +162,10 @@ getIngredientInputBtn.addEventListener("click", function (event) {
 clearBtn.addEventListener("click", function () {
   ingredientsList = [];
   document.getElementById("ingredients-list").innerHTML = " ";
+  document
+    .getElementById("saved-recipes-container")
+    .setAttribute("style", "display:none");
+  document.getElementById("recipe-card").setAttribute("style", "display:none");
 });
 
 //to do: add saved recipes to local storage by user
