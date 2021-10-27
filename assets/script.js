@@ -6,6 +6,8 @@ var getIngredientInputBtn = document.getElementById("submit-btn");
 //DATA
 //need to store name of current user after they enter it in getNameInput event listenter
 var currentUserName = "";
+//need an array to store the ingredients the users inputs
+var ingredientsArr = [];
 
 //FUNCTIONS
 //uses the name the user entered to display a message unique to the current user
