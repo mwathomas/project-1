@@ -28,6 +28,15 @@ body {
   flex-direction: column;
   color: var(--most-green);
 }
+
+.name-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
 #header-contatiner {
   display: flex;
   justify-content: center;
