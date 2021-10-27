@@ -7,7 +7,7 @@ var getRecipeBtn = document.getElementById("search-recipe-btn");
 var getIngredientInputEl = document.getElementById("add-ingredient-input");
 var recipeTitleEl = document.getElementById("recipe-title");
 var recipeInstructionsEl = document.getElementById("recipe-instructions");
-var searchAnotherRecipeBtn = document.getElementById("another-recipe-button");
+var searchAnotherRecipeBtn = document.getElementById("another-recipe-btn");
 
 //DATA
 //need to store name of current user after they enter it in getNameInput event listenter
@@ -95,7 +95,7 @@ function renderIngredientsOnSearchList() {
         fetch(
           "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
             recipeID +
-            "/summary",
+            "/information",
           {
             method: "GET",
             headers: {
@@ -111,7 +111,7 @@ function renderIngredientsOnSearchList() {
           })
           .then(function (data2) {
             console.log(data2);
-            recipeInstructionsEl.innerHTML = data2.summary;
+            recipeInstructionsEl.setAttribute("href", data2.sourceUrl);
           });
       }
       getRecipeBtn.addEventListener("click", function (event) {
@@ -123,7 +123,7 @@ function renderIngredientsOnSearchList() {
       searchAnotherRecipeBtn.addEventListener("click", function (event) {
         event.preventDefault();
         //this targets the input from the add ingredients part of the process
-        recipeNum = i++;
+        recipeNum++;
         searchRecipes();
       });
     });
