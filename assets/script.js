@@ -18,5 +18,12 @@ getNameInputBtn.addEventListener("click", function (event) {
   //targets the <input> for the user
   var $userNameInput = $("#name-input");
   currentUserName = $userNameInput.val();
-  console.log(currentUserName);
+
+  //checks to make sure there was something in input area when submit button is pressed
+  if (currentUserName === "") {
+    alert(
+      "ERROR: NO NAME ENTERED -- PLEASE ADD NAME BEFORE ADDING INGREDIENTS"
+    );
+    return;
+  }
 });
