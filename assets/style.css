@@ -88,6 +88,10 @@ button:hover {
   background-color: var(--darkest-blue) !important;
 }
 
+.margin-btn {
+  margin-top: 5px !important;
+}
+
 #list-of-entered-ingredients-container {
   display: flex;
   justify-content: center;
