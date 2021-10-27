@@ -17,6 +17,15 @@ var currentUserName = "";
 var ingredientsList = [];
 var ingredientsUrl = "";
 var recipeNum = 0;
+var savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
+if (savedRecipes == null) {
+  savedRecipes = [];
+}
+for (let i = 0; i < savedRecipes.length; i++) {
+  var li = document.createElement("li");
+  li.append(savedRecipes[i]);
+  document.getElementById("saved-recipes").appendChild(li);
+}
 
 //FUNCTIONS
 //uses the name the user entered to display a message unique to the current user
@@ -42,15 +51,6 @@ function askUserForIngredients() {
   document
     .getElementById("saved-recipes-container")
     .setAttribute("style", "display:block");
-  var savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
-  if (savedRecipes == null) {
-    savedRecipes = [];
-  }
-  for (let i = 0; i < savedRecipes.length; i++) {
-    var li = document.createElement("li");
-    li.append(savedRecipes[i]);
-    document.getElementById("saved-recipes").appendChild(li);
-  }
 }
 
 //have default visibility for "ingreds-input-container" be hidden, but after user enters their name this container will become visible
@@ -154,7 +154,7 @@ saveRecipeBtn.addEventListener("click", function () {
   var li = document.createElement("li");
   li.append(save);
   savedRecipes.push(save);
-  document.getElementById("savedRecipes").appendChild(li);
+  document.getElementById("saved-recipes").appendChild(li);
   localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
 });
 //TODO: WRITE A FUNCTION THAT ADDS A 'SEARCH FOR RECIPES' BUTTON ONTO THE LIST OF INGREDIENTS ADDED TO THE LIST TO BE SEARCHED
