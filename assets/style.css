@@ -11,68 +11,90 @@
   --most-green: #80ffdb;
 }
 
-.header {
+body {
   background: linear-gradient(
     90deg,
-    var(--most-green) 0%,
-    var(--darkest-blue) 35%,
-    var(--lightest-blue) 100%
+    var(--lightest-blue) 0%,
+    var(--darkest-blue) 100%
   );
-  color: var(--darkest-blue);
+  color: var(--most-green);
+  height: 100vh;
 }
-.title {
-  background: linear-gradient(
-    90deg,
-    var(--most-green) 0%,
-    var(--darkest-blue) 35%,
-    var(--lightest-blue) 100%
-  );
-  color: var(--darkest-blue);
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--most-green);
+}
+#header-contatiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--most-green);
+}
+.the-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--most-green);
 }
 
 .main-container {
-  background: linear-gradient(
-    90deg,
-    var(--most-green) 0%,
-    var(--darkest-blue) 35%,
-    var(--lightest-blue) 100%
-  );
-  color: var(--darkest-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--most-green);
+}
+.ingredients-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .button {
-  background-color: var(--lighter-blue);
-  color: var(--darkest-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--most-green);
 }
 
 #list-of-entered-ingredients-container {
-  background: linear-gradient(
-    90deg,
-    var(--most-green) 0%,
-    var(--darkest-blue) 35%,
-    var(--lightest-blue) 100%
-  );
-  color: var(--darkest-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--most-green);
 }
 .recipe-card {
-  background: linear-gradient(
-    90deg,
-    var(--most-green) 0%,
-    var(--darkest-blue) 35%,
-    var(--lightest-blue) 100%
-  );
-  color: var(--darkest-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--most-green);
 }
 .saved-recipes-container {
-  background: linear-gradient(
-    90deg,
-    var(--most-green) 0%,
-    var(--darkest-blue) 35%,
-    var(--lightest-blue) 100%
-  );
-  color: var(--darkest-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--most-green);
 }
 
 #ingreds-input-container {
   visibility: hidden;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--most-green);
+  bottom: 0;
 }
