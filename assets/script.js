@@ -2,7 +2,8 @@
 //targets the button the users presses to enter their name at the top of the page
 var getNameInputBtn = document.getElementById("button-addon2");
 var getIngredientInputBtn = document.getElementById("submit-ingredient-btn");
-var clearBtnEl = document.getElementById("clear-btn");
+var clearBtn = document.getElementById("clear-btn");
+var getRecipeBtn = document.getElementById("search-recipe-btn");
 var getIngredientInputEl = document.getElementById("add-ingredient-input");
 
 //DATA
@@ -59,27 +60,39 @@ function renderIngredientsOnSearchList() {
   document.getElementById("ingredients-list").appendChild(li);
   ingredientsList.push(ingredientAdd);
   getIngredientInputEl.value = null;
-  ingredient = ingredientAdd;
-  const settings = {
-    async: true,
-    crossDomain: true,
-    url: "https://yummly2.p.rapidapi.com/feeds/auto-complete?q=" + ingredient,
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "yummly2.p.rapidapi.com",
-      "x-rapidapi-key": "ea91f8aed7mshe4416b806d0b4cdp1081acjsn9031a359a4ff",
-    },
-  };
-
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
+  var ingredientsUrl = "";
+  for (let i = 0; i < ingredientsList.length; i++) {
+    ingredientsUrl += ingredientsList[i];
+  }
+  console.log(ingredientsUrl);
+  fetch(
+    "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=" +
+      ingredientsList +
+      "&ignorePantry=true",
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host":
+          "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+        "x-rapidapi-key": "ea91f8aed7mshe4416b806d0b4cdp1081acjsn9031a359a4ff",
+      },
+    }
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
 }
+getRecipeBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+});
 
 //TODO: WRITE A FUNCTION THAT ADDS A 'SEARCH FOR RECIPES' BUTTON ONTO THE LIST OF INGREDIENTS ADDED TO THE LIST TO BE SEARCHED
-function addAbilityToSearchRecipes() {
-  //create a button and add it to end 'list-of-entered-ingredients-container'
-}
+function addAbilityToSearchRecipes() {}
+
+//create a button and add it to end 'list-of-entered-ingredients-container'
 
 //USER INTERACTIONS
 //DONE: save the users input when they are prompted at the very start of the page
@@ -105,7 +118,7 @@ getIngredientInputBtn.addEventListener("click", function (event) {
   renderIngredientsOnSearchList();
 });
 
-clearBtnEl.addEventListener("click", function () {
+clearBtn.addEventListener("click", function () {
   ingredientsList = [];
   document.getElementById("ingredients-list").innerHTML = " ";
 });
