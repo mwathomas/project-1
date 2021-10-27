@@ -1,7 +1,7 @@
 //DEPENDENCIES
 //targets the button the users presses to enter their name at the top of the page
 var getNameInputBtn = document.getElementById("button-addon2");
-var getIngredientInputBtn = document.getElementById("submit-btn");
+var getIngredientInputBtn = document.getElementById("submit-ingredient-btn");
 
 //DATA
 //need to store name of current user after they enter it in getNameInput event listenter
