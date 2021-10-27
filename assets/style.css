@@ -59,7 +59,6 @@ body {
   align-items: center;
   flex-direction: column;
   color: var(--most-green);
-  text-decoration: underline;
 }
 
 .input-group {
