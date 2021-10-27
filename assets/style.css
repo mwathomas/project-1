@@ -52,6 +52,11 @@ body {
   color: var(--most-green);
   text-decoration: underline;
 }
+
+.input-group {
+  width: 30% !important;
+}
+
 .ingredients-container {
   display: flex;
   justify-content: center;
@@ -59,12 +64,19 @@ body {
   flex-direction: column;
 }
 
-.button {
+button {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: var(--most-green);
+  color: var(--darkest-blue) !important;
+  background-color: var(--most-green) !important;
+  height: 2.5em;
+  margin-top: -1px !important;
+}
+button:hover {
+  color: var(--most-green) !important;
+  background-color: var(--darkest-blue) !important;
 }
 
 #list-of-entered-ingredients-container {
