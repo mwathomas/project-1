@@ -111,12 +111,20 @@ function renderIngredientsOnSearchList() {
           })
           .then(function (data2) {
             console.log(data2);
+            recipeInstructionsEl.innerHTML = data2.sourceUrl;
             recipeInstructionsEl.setAttribute("href", data2.sourceUrl);
           });
       }
       getRecipeBtn.addEventListener("click", function (event) {
         event.preventDefault();
+
         //this targets the input from the add ingredients part of the process
+        document
+          .getElementById("saved-recipes-container")
+          .setAttribute("style", "display:block");
+        document
+          .getElementById("recipe-card")
+          .setAttribute("style", "display:block");
         searchRecipes();
       });
 

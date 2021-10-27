@@ -81,7 +81,7 @@
 
       <!-- AFTER THE CUSTOMER 'CLICKS' THE FIND RECIPES BUTTON, WE WANT TO MAKE ALL OTHER SECTIONS OF THE PAGE (besides maybe the header?) HIDDEN AND 'possible-recipes-container' THE ONLY SECTION VISIBLE -->
       <section id="possible-recipes-container">
-        <div class="recipe-card">
+        <div class="recipe-card" id="recipe-card" style="display:none">
           <!-- GOOD FOR VISUAL RIGHT NOW BUT EVENTUALLY WE NEED TO MAKE THE H2 AND 2 P'S EMPTY (OR COULD USE TO CREATE THE H2 AND P AND ADD THE TEXT (should do this way)) AND DYNAMICALLY ADD IT IN SOME FORM) -->
           <h2 id="recipe-title">Recipe Title</h2>
           <a id="recipe-instructions" href="">LINK TO RECIPE</p>
@@ -94,7 +94,7 @@
           </button>
         </div>
       </section>
-      <section id="saved-recipes-container">
+      <section id="saved-recipes-container" style="display:none">
         <h2>Saved Recipes Container</h2>
       </section>
     </main>
