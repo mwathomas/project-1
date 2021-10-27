@@ -48,19 +48,13 @@
 #list-of-entered-ingredients-container {
   background: linear-gradient(
     90deg,
-    var(--most-green) 0%,
-    var(--darkest-blue) 35%,
-    var(--lightest-blue) 100%
+    var(--lightest-blue) 0%,
+    var(--darkest-blue) 100%
   );
   color: var(--darkest-blue);
 }
 .recipe-card {
-  background: linear-gradient(
-    90deg,
-    var(--most-green) 0%,
-    var(--darkest-blue) 35%,
-    var(--lightest-blue) 100%
-  );
+  background: linear-gradient(var(--least-green) 0% var(--most-green) 100%);
   color: var(--darkest-blue);
 }
 .saved-recipes-container {
