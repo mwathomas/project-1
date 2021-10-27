@@ -6,12 +6,15 @@ var clearBtn = document.getElementById("clear-btn");
 var getRecipeBtn = document.getElementById("search-recipe-btn");
 var getIngredientInputEl = document.getElementById("add-ingredient-input");
 var recipeTitleEl = document.getElementById("recipe-title");
+var recipeInstructionsEl = document.getElementById("recipe-instructions");
+var searchAnotherRecipeBtn = document.getElementById("another-recipe-button");
 
 //DATA
 //need to store name of current user after they enter it in getNameInput event listenter
 var currentUserName = "";
 var ingredientsList = [];
 var ingredientsUrl = "";
+var recipeNum = 0;
 //FUNCTIONS
 //uses the name the user entered to display a message unique to the current user
 function welcomeUser() {
@@ -85,21 +88,46 @@ function renderIngredientsOnSearchList() {
     })
     .then(function (data) {
       console.log(data);
-      console.log(data[0].title);
 
       function searchRecipes() {
-        recipeTitleEl.innerHTML = data[0].title;
+        recipeTitleEl.innerHTML = data[recipeNum].title;
+        var recipeID = data[recipeNum].id;
+        fetch(
+          "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
+            recipeID +
+            "/summary",
+          {
+            method: "GET",
+            headers: {
+              "x-rapidapi-host":
+                "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+              "x-rapidapi-key":
+                "ea91f8aed7mshe4416b806d0b4cdp1081acjsn9031a359a4ff",
+            },
+          }
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data2) {
+            console.log(data2);
+            recipeInstructionsEl.innerHTML = data2.summary;
+          });
       }
+      getRecipeBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        //this targets the input from the add ingredients part of the process
+        searchRecipes();
+      });
+
+      searchAnotherRecipeBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        //this targets the input from the add ingredients part of the process
+        recipeNum = i++;
+        searchRecipes();
+      });
     });
-  getRecipeBtn.addEventListener("click", function (event) {
-    event.preventDefault();
-    //this targets the input from the add ingredients part of the process
-    searchRecipes();
-  });
 }
-getRecipeBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-});
 
 //TODO: WRITE A FUNCTION THAT ADDS A 'SEARCH FOR RECIPES' BUTTON ONTO THE LIST OF INGREDIENTS ADDED TO THE LIST TO BE SEARCHED
 
@@ -133,3 +161,5 @@ clearBtn.addEventListener("click", function () {
   ingredientsList = [];
   document.getElementById("ingredients-list").innerHTML = " ";
 });
+
+//to do: add saved recipes to local storage by user
