@@ -92,9 +92,9 @@ body {
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--most-green);
+  position: absolute;
   bottom: 0;
+  left: 25%;
+  right: 25%;
+  color: var(--most-green);
 }
