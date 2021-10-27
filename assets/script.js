@@ -6,8 +6,10 @@ var clearBtn = document.getElementById("clear-btn");
 var getRecipeBtn = document.getElementById("search-recipe-btn");
 var getIngredientInputEl = document.getElementById("add-ingredient-input");
 var recipeTitleEl = document.getElementById("recipe-title");
-var recipeInstructionsEl = document.getElementById("recipe-instructions");
+var recipeImgEl = document.getElementById("recipe-img");
+var recipeImgUrlEl = document.getElementById("recipe-img-url");
 var searchAnotherRecipeBtn = document.getElementById("another-recipe-btn");
+var saveRecipeBtn = document.getElementById("save-recipe-btn");
 
 //DATA
 //need to store name of current user after they enter it in getNameInput event listenter
@@ -15,6 +17,7 @@ var currentUserName = "";
 var ingredientsList = [];
 var ingredientsUrl = "";
 var recipeNum = 0;
+
 //FUNCTIONS
 //uses the name the user entered to display a message unique to the current user
 function welcomeUser() {
@@ -39,6 +42,15 @@ function askUserForIngredients() {
   document
     .getElementById("saved-recipes-container")
     .setAttribute("style", "display:block");
+  var savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
+  if (savedRecipes == null) {
+    savedRecipes = [];
+  }
+  for (let i = 0; i < savedRecipes.length; i++) {
+    var li = document.createElement("li");
+    li.append(savedRecipes[i]);
+    document.getElementById("saved-recipes").appendChild(li);
+  }
 }
 
 //have default visibility for "ingreds-input-container" be hidden, but after user enters their name this container will become visible
@@ -61,6 +73,9 @@ function checkUserInput(string) {
 
 //TODO: WRITE FUNCTION TO SHOW THE CURRENT LIST OF SEARCHED INGREDIENTS IN 'list-of-entered-ingredients-container'
 function renderIngredientsOnSearchList() {
+  document
+    .getElementById("list-of-entered-ingredients-container")
+    .setAttribute("style", "display:block");
   var ingredientAdd = getIngredientInputEl.value;
   var li = document.createElement("li");
   li.append(ingredientAdd);
@@ -95,7 +110,9 @@ function renderIngredientsOnSearchList() {
 
       function searchRecipes() {
         recipeTitleEl.innerHTML = data[recipeNum].title;
+        recipeImgEl.setAttribute("src", data[recipeNum].image);
         var recipeID = data[recipeNum].id;
+
         fetch(
           "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
             recipeID +
@@ -115,10 +132,9 @@ function renderIngredientsOnSearchList() {
           })
           .then(function (data2) {
             console.log(data2);
-            recipeInstructionsEl.innerHTML = data2.sourceUrl;
-            recipeInstructionsEl.setAttribute("href", data2.sourceUrl);
+            recipeImgUrlEl.href = data2.sourceUrl;
+            recipeNum++;
           });
-        recipeNum++;
       }
       getRecipeBtn.addEventListener("click", function (event) {
         event.preventDefault();
@@ -133,7 +149,14 @@ function renderIngredientsOnSearchList() {
       });
     });
 }
-
+saveRecipeBtn.addEventListener("click", function () {
+  var save = recipeImgUrlEl.href;
+  var li = document.createElement("li");
+  li.append(save);
+  savedRecipes.push(save);
+  document.getElementById("savedRecipes").appendChild(li);
+  localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+});
 //TODO: WRITE A FUNCTION THAT ADDS A 'SEARCH FOR RECIPES' BUTTON ONTO THE LIST OF INGREDIENTS ADDED TO THE LIST TO BE SEARCHED
 
 //create a button and add it to end 'list-of-entered-ingredients-container'
