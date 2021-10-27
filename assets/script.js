@@ -14,6 +14,17 @@ function welcomeUser() {
   $welcomeUserMessageTarget.text(
     "Hello, " + currentUserName + "! Welcome to FoodE!"
   );
+  askUserForIngredients();
+}
+
+//displays a custom message to the user asking which ingredients theyd like to add
+function askUserForIngredients() {
+  //variable to target span to add user's name to
+  var $askUserIngredientsTarget = $("#ask-user-ingredients"); //document.getElementById("user-name");
+  console.log($askUserIngredientsTarget.val());
+  $askUserIngredientsTarget.text(
+    "What ingredients will you be cooking with today, " + currentUserName
+  );
 }
 
 //USER INTERACTIONS
