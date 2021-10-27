@@ -20,12 +20,21 @@ function welcomeUser() {
 
 //displays a custom message to the user asking which ingredients theyd like to add
 function askUserForIngredients() {
+  //make hidden container visible
+  displayIngredientAddInputAbility();
+
   //variable to target span to add user's name to
   var $askUserIngredientsTarget = $("#ask-user-ingredients"); //document.getElementById("user-name");
   console.log($askUserIngredientsTarget.val());
   $askUserIngredientsTarget.text(
     "What ingredients will you be cooking with today, " + currentUserName
   );
+}
+
+//have default visibility for "ingreds-input-container" be hidden, but after user enters their name this container will become visible
+function displayIngredientAddInputAbility() {
+  var ingredsContainer = document.getElementById("ingreds-input-container");
+  ingredsContainer.style.visibility = "visible";
 }
 
 //USER INTERACTIONS
