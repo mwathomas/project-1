@@ -19,7 +19,6 @@ function welcomeUser() {
   $welcomeUserMessageTarget.text(
     "Hello, " + currentUserName + "! Welcome to FoodE!"
   );
-
   askUserForIngredients();
 }
 
@@ -27,7 +26,6 @@ function welcomeUser() {
 function askUserForIngredients() {
   //make hidden container visible
   displayIngredientAddInputAbility();
-
   //variable to target span to add user's name to
   var $askUserIngredientsTarget = $("#ask-user-ingredients"); //document.getElementById("user-name");
   $askUserIngredientsTarget.text(
@@ -61,20 +59,7 @@ function renderIngredientsOnSearchList() {
   li.append(ingredientAdd);
   ingredientsList.push(ingredientAdd);
   document.getElementById("ingredients-list").appendChild(li);
-
-  /*
-    //loop through each item in the array until the end
-        //we want to create a new little 'section' (<div>) that we can add both a <p> or <h1> to AND a button that  the user will be able to press to remove an element from their list to search
-            //we need create our <p> or <h1>
-                //add <p> or <h1> to 'section' created in earlier step
-            //we need create our delete button
-                //add button to 'section' created in earlier step
-        
-        //Now that we have our 'section' put together so it has our text && button elemenets, we need to add our 'section' to the relevant container on the html page 
-
-        if(ingredientsArr.length !== 0)
-            //addAbilityToSearchRecipes();
-    */
+  getIngredientInputEl.value = "";
 }
 
 //TODO: WRITE A FUNCTION THAT ADDS A 'SEARCH FOR RECIPES' BUTTON ONTO THE LIST OF INGREDIENTS ADDED TO THE LIST TO BE SEARCHED
