@@ -5,6 +5,7 @@ var getIngredientInputBtn = document.getElementById("submit-ingredient-btn");
 var clearBtn = document.getElementById("clear-btn");
 var getRecipeBtn = document.getElementById("search-recipe-btn");
 var getIngredientInputEl = document.getElementById("add-ingredient-input");
+var recipeTitleEl = document.getElementById("recipe-title");
 
 //DATA
 //need to store name of current user after they enter it in getNameInput event listenter
@@ -84,14 +85,23 @@ function renderIngredientsOnSearchList() {
     })
     .then(function (data) {
       console.log(data);
+      console.log(data[0].title);
+
+      function searchRecipes() {
+        recipeTitleEl.innerHTML = data[0].title;
+      }
     });
+  getRecipeBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    //this targets the input from the add ingredients part of the process
+    searchRecipes();
+  });
 }
 getRecipeBtn.addEventListener("click", function (event) {
   event.preventDefault();
 });
 
 //TODO: WRITE A FUNCTION THAT ADDS A 'SEARCH FOR RECIPES' BUTTON ONTO THE LIST OF INGREDIENTS ADDED TO THE LIST TO BE SEARCHED
-function addAbilityToSearchRecipes() {}
 
 //create a button and add it to end 'list-of-entered-ingredients-container'
 
