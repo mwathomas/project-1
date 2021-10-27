@@ -9,7 +9,8 @@ var getIngredientInputEl = document.getElementById("add-ingredient-input");
 //DATA
 //need to store name of current user after they enter it in getNameInput event listenter
 var currentUserName = "";
-
+var ingredientsList = [];
+var ingredientsUrl = "";
 //FUNCTIONS
 //uses the name the user entered to display a message unique to the current user
 function welcomeUser() {
@@ -53,15 +54,15 @@ function checkUserInput(string) {
 
 //TODO: WRITE FUNCTION TO SHOW THE CURRENT LIST OF SEARCHED INGREDIENTS IN 'list-of-entered-ingredients-container'
 function renderIngredientsOnSearchList() {
-  var ingredientsList = [];
   var ingredientAdd = getIngredientInputEl.value;
   var li = document.createElement("li");
   li.append(ingredientAdd);
   document.getElementById("ingredients-list").appendChild(li);
   ingredientsList.push(ingredientAdd);
+  console.log(ingredientsList);
   getIngredientInputEl.value = null;
-  var ingredientsUrl = "";
-  for (let i = 0; i < ingredientsList.length; i++) {
+  var ingredientsUrl = ingredientsList[0];
+  for (let i = 1; i < ingredientsList.length; i++) {
     ingredientsUrl += ingredientsList[i];
   }
   console.log(ingredientsUrl);
