@@ -2,6 +2,7 @@
 //targets the button the users presses to enter their name at the top of the page
 var getNameInputBtn = document.getElementById("button-addon2");
 var getIngredientInputBtn = document.getElementById("submit-ingredient-btn");
+var clearBtnEl = document.getElementById("clear-btn");
 var getIngredientInputEl = document.getElementById("add-ingredient-input");
 
 //DATA
@@ -89,4 +90,9 @@ getIngredientInputBtn.addEventListener("click", function (event) {
   event.preventDefault();
   //this targets the input from the add ingredients part of the process
   renderIngredientsOnSearchList();
+});
+
+clearBtnEl.addEventListener("click", function () {
+  ingredientsList = [];
+  document.getElementById("ingredients-list").innerHTML = " ";
 });
