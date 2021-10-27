@@ -3,7 +3,7 @@
 var $userNameInput = $("#name-input");
 
 //targets the button the users presses to enter their name at the top of the page
-var getNameInput = document.getElementById("button-addon2");
+var getNameInputBtn = document.getElementById("button-addon2");
 
 //DATA
 
