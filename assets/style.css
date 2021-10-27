@@ -50,7 +50,7 @@ body {
   align-items: center;
   flex-direction: column;
   color: var(--most-green);
-  text-decoration: underline;
+ 
 }
 
 .input-group {
@@ -62,6 +62,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  nav-down: 30px;
 }
 
 button {
@@ -77,6 +79,10 @@ button {
 button:hover {
   color: var(--most-green) !important;
   background-color: var(--darkest-blue) !important;
+}
+.submit-ingredients-btn {
+  display: flex;
+  color: pink;
 }
 
 #list-of-entered-ingredients-container {
