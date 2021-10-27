@@ -1,5 +1,4 @@
 //DEPENDENCIES
-
 //targets the button the users presses to enter their name at the top of the page
 var getNameInputBtn = document.getElementById("button-addon2");
 
@@ -9,7 +8,10 @@ var currentUserName = "";
 
 //FUNCTIONS
 //uses the name the user entered to display a message unique to the current user
-function welcomeUser() {}
+function welcomeUser() {
+  //variable to target span to add user's name to
+  var welcomeUserMessageTarget = document.getElementById("user-name");
+}
 
 //USER INTERACTIONS
 //TODO: save the users input when they are prompted at the very start of the page
