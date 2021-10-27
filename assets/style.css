@@ -59,10 +59,9 @@ body {
   align-items: center;
   flex-direction: column;
   color: var(--most-green);
-  text-decoration: underline;
 }
 
-.input-group {
+.width-input {
   width: 30% !important;
 }
 
@@ -83,9 +82,19 @@ button {
   height: 2.5em;
   margin-top: -1px !important;
 }
+
+.round-btn {
+  border-radius: 95px !important;
+}
+
 button:hover {
   color: var(--most-green) !important;
   background-color: var(--darkest-blue) !important;
+  box-shadow: 1px 1px 5px rgb(226, 202, 247);
+}
+
+.margin-btn {
+  margin-top: 5px !important;
 }
 
 #list-of-entered-ingredients-container {
@@ -96,18 +105,24 @@ button:hover {
   color: var(--most-green);
 }
 .recipe-card {
+  margin: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: var(--most-green);
+  color: var(--darkest-blue);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 5px 5px 50px rgb(17, 17, 17);
 }
-.saved-recipes-container {
+#saved-recipes-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color: var(--most-green);
+  margin: 20px;
 }
 
 #ingreds-input-container {
