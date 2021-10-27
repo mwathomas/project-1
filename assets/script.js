@@ -10,7 +10,10 @@ var currentUserName = "";
 //uses the name the user entered to display a message unique to the current user
 function welcomeUser() {
   //variable to target span to add user's name to
-  var welcomeUserMessageTarget = document.getElementById("user-name");
+  var $welcomeUserMessageTarget = $("#user-name"); //document.getElementById("user-name");
+  $welcomeUserMessageTarget.text(
+    "Hello, " + currentUserName + "! Welcome to FoodE!"
+  );
 }
 
 //USER INTERACTIONS
@@ -30,5 +33,6 @@ getNameInputBtn.addEventListener("click", function (event) {
     );
     return;
   }
-  //TODO: call a function that adds the users name to the <span> in the header welcoming them
+  //call a function that adds the users name to the <span> in the header welcoming them
+  welcomeUser();
 });
