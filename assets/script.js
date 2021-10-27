@@ -38,6 +38,20 @@ function displayIngredientAddInputAbility() {
   ingredsContainer.style.visibility = "visible";
 }
 
+//TODO: WRITE FUNCTION TO SHOW THE CURRENT LIST OF SEARCHED INGREDIENTS IN'list-of-entered-ingredients-container'
+function renderIngredientsOnSearchList() {
+  /*
+    //loop through each item in the array until the end
+        //we want to create a new little 'section' (<div>) that we can add both a <p> or <h1> to AND a button that  the user will be able to press to remove an element from their list to search
+            //we need create our <p> or <h1>
+                //add <p> or <h1> to 'section' created in earlier step
+            //we need create our delete button
+                //add button to 'section' created in earlier step
+        
+        //Now that we have our 'section' put together so it has our text && button elemenets, we need to add our 'section' to the relevant container on the html page 
+    */
+}
+
 //USER INTERACTIONS
 //DONE: save the users input when they are prompted at the very start of the page
 getNameInputBtn.addEventListener("click", function (event) {
@@ -81,7 +95,6 @@ getIngredientInputBtn.addEventListener("click", function (event) {
 
   //add the string to the 'ingredientsArr' array that is storing every ingredient added
   ingredientsArr.push(currentIngredientString);
-  console.log(ingredientsArr);
   //TODO: write a function that will display the array of searched ingredients INTO THE 'list-of-entered-ingredients-container'
   //renderIngredientsOnSearchList();
 });
