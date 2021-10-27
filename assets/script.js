@@ -8,6 +8,8 @@ var getNameInputBtn = document.getElementById("button-addon2");
 var currentUserName = "";
 
 //FUNCTIONS
+//uses the name the user entered to display a message unique to the current user
+function welcomeUser() {}
 
 //USER INTERACTIONS
 //TODO: save the users input when they are prompted at the very start of the page
@@ -26,4 +28,5 @@ getNameInputBtn.addEventListener("click", function (event) {
     );
     return;
   }
+  //TODO: call a function that adds the users name to the <span> in the header welcoming them
 });
