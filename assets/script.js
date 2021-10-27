@@ -8,8 +8,6 @@ var getIngredientInputEl = document.getElementById("add-ingredient-input");
 //DATA
 //need to store name of current user after they enter it in getNameInput event listenter
 var currentUserName = "";
-//need an array to store the ingredients the users inputs
-var ingredientsArr = [];
 
 //FUNCTIONS
 //uses the name the user entered to display a message unique to the current user
@@ -58,9 +56,24 @@ function renderIngredientsOnSearchList() {
   var ingredientAdd = getIngredientInputEl.value;
   var li = document.createElement("li");
   li.append(ingredientAdd);
-  ingredientsList.push(ingredientAdd);
   document.getElementById("ingredients-list").appendChild(li);
-  getIngredientInputEl.value = "";
+  ingredientsList.push(ingredientAdd);
+  getIngredientInputEl.value = null;
+  ingredient = ingredientAdd;
+  const settings = {
+    async: true,
+    crossDomain: true,
+    url: "https://yummly2.p.rapidapi.com/feeds/auto-complete?q=" + ingredient,
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "yummly2.p.rapidapi.com",
+      "x-rapidapi-key": "ea91f8aed7mshe4416b806d0b4cdp1081acjsn9031a359a4ff",
+    },
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
 }
 
 //TODO: WRITE A FUNCTION THAT ADDS A 'SEARCH FOR RECIPES' BUTTON ONTO THE LIST OF INGREDIENTS ADDED TO THE LIST TO BE SEARCHED
