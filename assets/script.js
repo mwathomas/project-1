@@ -38,6 +38,18 @@ function displayIngredientAddInputAbility() {
   ingredsContainer.style.visibility = "visible";
 }
 
+function checkUserInput(string) {
+  if (string === "") {
+    alert("ERROR: SUBMISSION OF EMPTY INPUT");
+    return;
+  } else if (typeof string !== "string") {
+    alert(
+      "ERROR: ONLY ALLOWED TO INPUT NON-NUMERICAL AND NON-SPECIAL CHARACTERS"
+    );
+    return;
+  }
+}
+
 //TODO: WRITE FUNCTION TO SHOW THE CURRENT LIST OF SEARCHED INGREDIENTS IN 'list-of-entered-ingredients-container'
 function renderIngredientsOnSearchList() {
   /*
@@ -71,12 +83,8 @@ getNameInputBtn.addEventListener("click", function (event) {
   currentUserName = $userNameInput.val().trim();
 
   //checks to make sure there was something in input area when submit button is pressed
-  if (currentUserName === "") {
-    alert(
-      "ERROR: NO NAME ENTERED -- PLEASE ADD NAME BEFORE ADDING INGREDIENTS"
-    );
-    return;
-  }
+  checkUserInput(currentUserName);
+
   //call a function that adds the users name to the <span> in the header welcoming them
   welcomeUser();
 });
@@ -96,10 +104,7 @@ getIngredientInputBtn.addEventListener("click", function (event) {
   clearLastSearchedIngredient.value = "";
 
   //checks to make sure there was something in input area when submit button is pressed
-  if (currentIngredientString === "") {
-    alert("ERROR: NO INGREDIENT ENTERED");
-    return;
-  }
+  checkUserInput(currentIngredientString);
 
   //add the string to the 'ingredientsArr' array that is storing every ingredient added
   ingredientsArr.push(currentIngredientString);
