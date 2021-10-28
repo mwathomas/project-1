@@ -104,6 +104,7 @@ button:hover {
   color: var(--most-green);
 }
 .recipe-card {
+  margin: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
