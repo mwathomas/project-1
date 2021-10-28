@@ -3,6 +3,7 @@
 var getNameInputBtn = document.getElementById("button-addon2");
 var getIngredientInputBtn = document.getElementById("submit-ingredient-btn");
 var clearBtn = document.getElementById("clear-btn");
+var clearRecipeBtn = document.getElementById("clear-recipe-btn");
 var getRecipeBtn = document.getElementById("search-recipe-btn");
 var getIngredientInputEl = document.getElementById("add-ingredient-input");
 var recipeTitleEl = document.getElementById("recipe-title");
@@ -190,4 +191,9 @@ clearBtn.addEventListener("click", function () {
     .getElementById("saved-recipes-container")
     .setAttribute("style", "display:none");
   document.getElementById("recipe-card").setAttribute("style", "display:none");
+});
+
+clearRecipeBtn.addEventListener("click", function () {
+  savedRecipes = [];
+  document.getElementById("saved-recipes").innerHTML = " ";
 });

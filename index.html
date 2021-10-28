@@ -84,7 +84,7 @@
         <div class="recipe-card" id="recipe-card" style="display: none">
           <!-- GOOD FOR VISUAL RIGHT NOW BUT EVENTUALLY WE NEED TO MAKE THE H2 AND 2 P'S EMPTY (OR COULD USE TO CREATE THE H2 AND P AND ADD THE TEXT (should do this way)) AND DYNAMICALLY ADD IT IN SOME FORM) -->
           <h2 id="recipe-title">Recipe Title</h2>
-          <a id="recipe-img-url" href="">
+          <a id="recipe-img-url" href="" target="_blank">
             <img id="recipe-img" src="" />
           </a>
           <div class="control">
@@ -102,7 +102,15 @@
       <div id="saved-recipes-container" style="display: none">
         <h2>Saved Recipes Container</h2>
         <ul id="saved-recipes" style="list-style: none"></ul>
-      </div>
+        <div class="control">
+          <a
+            id="clear-recipe-btn"
+            type="button"
+            class="button is-info round-btn margin-btn"
+          >
+            Clear Saved Recipes
+          </a>
+        </div>
     </main>
 
     <footer>
