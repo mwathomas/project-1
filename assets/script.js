@@ -2,14 +2,30 @@
 //targets the button the users presses to enter their name at the top of the page
 var getNameInputBtn = document.getElementById("button-addon2");
 var getIngredientInputBtn = document.getElementById("submit-ingredient-btn");
-var clearBtnEl = document.getElementById("clear-btn");
+var clearBtn = document.getElementById("clear-btn");
+var getRecipeBtn = document.getElementById("search-recipe-btn");
 var getIngredientInputEl = document.getElementById("add-ingredient-input");
+var recipeTitleEl = document.getElementById("recipe-title");
+var recipeImgEl = document.getElementById("recipe-img");
+var recipeImgUrlEl = document.getElementById("recipe-img-url");
+var searchAnotherRecipeBtn = document.getElementById("another-recipe-btn");
+var saveRecipeBtn = document.getElementById("save-recipe-btn");
 
 //DATA
 //need to store name of current user after they enter it in getNameInput event listenter
 var currentUserName = "";
-//need an array to store the ingredients the users inputs
-var ingredientsArr = [];
+var ingredientsList = [];
+var ingredientsUrl = "";
+var recipeNum = 0;
+var savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
+if (savedRecipes == null) {
+  savedRecipes = [];
+}
+for (let i = 0; i < savedRecipes.length; i++) {
+  var li = document.createElement("li");
+  li.append(savedRecipes[i]);
+  document.getElementById("saved-recipes").appendChild(li);
+}
 
 //FUNCTIONS
 //uses the name the user entered to display a message unique to the current user
@@ -32,6 +48,9 @@ function askUserForIngredients() {
   $askUserIngredientsTarget.text(
     "What ingredients will you be cooking with today, " + currentUserName
   );
+  document
+    .getElementById("saved-recipes-container")
+    .setAttribute("style", "display:block");
 }
 
 //have default visibility for "ingreds-input-container" be hidden, but after user enters their name this container will become visible
@@ -54,19 +73,93 @@ function checkUserInput(string) {
 
 //TODO: WRITE FUNCTION TO SHOW THE CURRENT LIST OF SEARCHED INGREDIENTS IN 'list-of-entered-ingredients-container'
 function renderIngredientsOnSearchList() {
-  var ingredientsList = [];
+  document
+    .getElementById("list-of-entered-ingredients-container")
+    .setAttribute("style", "display:block");
   var ingredientAdd = getIngredientInputEl.value;
   var li = document.createElement("li");
   li.append(ingredientAdd);
-  ingredientsList.push(ingredientAdd);
   document.getElementById("ingredients-list").appendChild(li);
-  getIngredientInputEl.value = "";
-}
+  ingredientsList.push(ingredientAdd);
+  console.log(ingredientsList);
+  getIngredientInputEl.value = null;
+  var ingredientsUrl = ingredientsList[0];
+  for (let i = 1; i < ingredientsList.length; i++) {
+    ingredientsUrl += ingredientsList[i];
+  }
+  console.log(ingredientsUrl);
 
-//TODO: WRITE A FUNCTION THAT ADDS A 'SEARCH FOR RECIPES' BUTTON ONTO THE LIST OF INGREDIENTS ADDED TO THE LIST TO BE SEARCHED
-function addAbilityToSearchRecipes() {
-  //create a button and add it to end 'list-of-entered-ingredients-container'
+  fetch(
+    "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=" +
+      ingredientsList +
+      "&ignorePantry=true",
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host":
+          "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+        "x-rapidapi-key": "ea91f8aed7mshe4416b806d0b4cdp1081acjsn9031a359a4ff",
+      },
+    }
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+
+      function searchRecipes() {
+        recipeTitleEl.innerHTML = data[recipeNum].title;
+        recipeImgEl.setAttribute("src", data[recipeNum].image);
+        var recipeID = data[recipeNum].id;
+
+        fetch(
+          "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
+            recipeID +
+            "/information",
+          {
+            method: "GET",
+            headers: {
+              "x-rapidapi-host":
+                "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+              "x-rapidapi-key":
+                "ea91f8aed7mshe4416b806d0b4cdp1081acjsn9031a359a4ff",
+            },
+          }
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data2) {
+            console.log(data2);
+            recipeImgUrlEl.href = data2.sourceUrl;
+            recipeNum++;
+          });
+      }
+      getRecipeBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        document
+          .getElementById("save-recipe-btn")
+          .setAttribute("style", "display:block");
+        //this targets the input from the add ingredients part of the process
+        document
+          .getElementById("recipe-card")
+          .setAttribute("style", "display:block");
+        searchRecipes();
+      });
+    });
 }
+saveRecipeBtn.addEventListener("click", function () {
+  var save = recipeImgUrlEl.href;
+  var li = document.createElement("li");
+  li.append(save);
+  savedRecipes.push(save);
+  document.getElementById("saved-recipes").appendChild(li);
+  localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+});
+//TODO: WRITE A FUNCTION THAT ADDS A 'SEARCH FOR RECIPES' BUTTON ONTO THE LIST OF INGREDIENTS ADDED TO THE LIST TO BE SEARCHED
+
+//create a button and add it to end 'list-of-entered-ingredients-container'
 
 //USER INTERACTIONS
 //DONE: save the users input when they are prompted at the very start of the page
@@ -92,7 +185,13 @@ getIngredientInputBtn.addEventListener("click", function (event) {
   renderIngredientsOnSearchList();
 });
 
-clearBtnEl.addEventListener("click", function () {
+clearBtn.addEventListener("click", function () {
   ingredientsList = [];
   document.getElementById("ingredients-list").innerHTML = " ";
+  document
+    .getElementById("saved-recipes-container")
+    .setAttribute("style", "display:none");
+  document.getElementById("recipe-card").setAttribute("style", "display:none");
 });
+
+//to do: add saved recipes to local storage by user
