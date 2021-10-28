@@ -7,7 +7,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
-
     <title>Foode</title>
   </head>
   <body>
@@ -41,11 +40,16 @@
               id="add-ingredient-input"
               class="input"
               type="text"
-              placeholder="Enter Name"
+              placeholder="Enter Ingredient"
             />
           </div>
           <div class="control">
-            <a id="submit-ingredient-btn" type="button" class="button is-info">
+            <a
+              id="submit-ingredient-btn"
+              placeholder="Enter Ingredient"
+              type="button"
+              class="button is-info"
+            >
               Add Ingredient
             </a>
           </div>
@@ -57,20 +61,20 @@
         >
           <h2>List of entered ingredients</h2>
           <ul id="ingredients-list"></ul>
-          <button
-            class="btn btn-outline-secondary round-btn margin-btn"
-            type="button"
-            id="clear-btn"
-          >
-            Clear Ingredient List
-          </button>
-          <button
-            class="btn btn-outline-secondary round-btn margin-btn"
-            type="button"
-            id="search-recipe-btn"
-          >
-            Search for recipes
-          </button>
+          <div class="control">
+            <a id="clear-btn" type="button" class="button is-info round-btn">
+              Clear Ingredients List
+            </a>
+          </div>
+          <div class="control">
+            <a
+              id="search-recipe-btn"
+              type="button"
+              class="button is-info round-btn margin-btn"
+            >
+              Search For Recipes
+            </a>
+          </div>
           <!-- AFTER THE USER ADDS 1 INGREDIENT SO THERE IS NOW A LIST DISPLAYING TO THE CUSTOMER -- WE NEED TO ADD A BUTTON, 'Search For Recipes' AT THE BOTTOM OF THEv LIST DISPLAY LIST THAT WILL TRIGGER A FUNCTION THAT CALLS OUR API'S TO DO SOME LOGIC -->
         </section>
       </section>
@@ -83,15 +87,17 @@
           <a id="recipe-img-url" href="">
             <img id="recipe-img" src="" />
           </a>
+          <div class="control">
+            <a
+              id="save-recipe-btn"
+              type="button"
+              style="display: none"
+              class="btn is-info round-btn margin-btn"
+            >
+              Save Recipe
+            </a>
+          </div>
         </div>
-        <button
-          class="btn btn-outline-secondary round-btn margin-btn"
-          type="button"
-          id="save-recipe-btn"
-          style="display: none"
-        >
-          Save Recipe
-        </button>
       </section>
       <div id="saved-recipes-container" style="display: none">
         <h2>Saved Recipes Container</h2>
