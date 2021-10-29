@@ -18,7 +18,7 @@ body {
     var(--darkest-blue) 100%
   );
   color: var(--most-green);
-  height: 100vh;
+  min-height: 150vh;
 }
 
 .header {
@@ -50,8 +50,7 @@ body {
   align-items: center;
   flex-direction: column;
   color: var(--most-green);
-  text-decoration: underline;
-  font-size: 2.5rem;
+  font-size: 45px;
 }
 
 .main-container {
@@ -72,8 +71,15 @@ body {
   align-items: center;
   flex-direction: column;
 }
+#add-ingredient-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-button {
+button,
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,14 +87,14 @@ button {
   color: var(--darkest-blue) !important;
   background-color: var(--most-green) !important;
   height: 2.5em;
-  margin-top: -1px !important;
+  margin-top: 0px !important;
 }
 
 .round-btn {
   border-radius: 95px !important;
 }
 
-button:hover {
+.button:hover {
   color: var(--most-green) !important;
   background-color: var(--darkest-blue) !important;
   box-shadow: 1px 1px 5px rgb(226, 202, 247);
@@ -106,7 +112,7 @@ button:hover {
   color: var(--most-green);
 }
 .recipe-card {
-  margin: 30px;
+  margin: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,7 +128,10 @@ button:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: var(--darkest-blue);
   color: var(--most-green);
+  border-radius: 25px;
+  padding: 20px;
   margin: 20px;
 }
 
@@ -131,16 +140,21 @@ button:hover {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  display: block;
+  position: fixed;
+  bottom: 0px;
   width: 100%;
   height: 40px;
   background-color: var(--darkest-blue);
+  margin-top: 50px;
+  text-align: center !important;
 }
 p.copyright {
-  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--most-green);
   line-height: 40px;
   font-size: 10px;
   text-align: center;
-  bottom: 0;
 }
