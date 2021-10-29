@@ -187,9 +187,6 @@ getIngredientInputBtn.addEventListener("click", function (event) {
 clearBtn.addEventListener("click", function () {
   ingredientsList = [];
   document.getElementById("ingredients-list").innerHTML = " ";
-  document
-    .getElementById("saved-recipes-container")
-    .setAttribute("style", "display:none");
   document.getElementById("recipe-card").setAttribute("style", "display:none");
 });
 
